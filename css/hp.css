@@ -1,0 +1,47 @@
+.ui.menu .item img.logo {
+  margin-right: 1.5em;
+}
+
+.search-body {
+  padding-top: 10px !important;
+}
+
+.ui.list .list > .item .header, .ui.list > .item .header {
+  color: #29aae2 !important;
+}
+
+.ui.awesome.image {
+  width: 60px;
+  height: auto;
+  font-size: .75rem;
+}
+
+.masthead {
+  padding: 20px;
+  min-height: 20vh;
+  //background-color: #177ca8;
+}
+
+.masthead h1.ui.header {
+  font-size: 4em !important;
+}
+
+.masthead h1.ui.sub {
+  font-size: 4em !important;
+}
+
+.textb {
+  color: #29aae2;
+}
+
+.textr {
+  color: #ed1c24;
+}
+
+// @media only screen and (max-width: 991px) and (min-width: 768px) {
+//   .ui.container {
+//     width: auto !important;
+//     margin-left: auto !important;
+//     margin-right: auto !important;
+//   }
+// }

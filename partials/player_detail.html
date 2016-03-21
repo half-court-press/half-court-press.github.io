@@ -1,0 +1,153 @@
+<div class="ui active centered inline loader" ng-show="player_loading || game_loading"></div>
+
+<div class="player-info" ng-hide="player_loading || game_loading">
+  <div class="ui one column centered grid">
+    <div class="ui statistic">
+      <div class="value">
+        {{ player[3] }}
+      </div>
+      <div class="label">
+        Player
+      </div>
+    </div>
+    <div class="ui statistic">
+      <div class="value">
+        <img ng-src="http://stats.nba.com/media/img/teams/logos/{{ player[18] }}_logo.svg" class="ui inline image">
+      </div>
+      <div class="label">
+        Team
+      </div>
+    </div>
+  </div>
+
+
+  <h4 class="ui horizontal divider header">
+    <i class="backward icon"></i>
+    Last Game
+  </h4>
+
+  <table class="ui very basic unstackable celled table" ng-hide="noTable">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Team</th>
+        <th>MIN</th>
+        <th>2PM</th>
+        <th>3PM</th>
+        <th>PTS</th>
+        <th>REB</th>
+        <th>AST</th>
+        <th>STL</th>
+        <th>BLK</th>
+        <th>TO</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="collapsing">{{ last_game[3] }}</td>
+        <td>{{ opp }}</td>
+        <td>{{ last_game[6] }}</td>
+        <td>{{ last_game[7] - last_game[10] }}</td>
+        <td>{{ last_game[10] }}</td>
+        <td>{{ last_game[24] }}</td>
+        <td>{{ last_game[18] }}</td>
+        <td>{{ last_game[19] }}</td>
+        <td>{{ last_game[20] }}</td>
+        <td>{{ last_game[21] }}</td>
+        <td>{{ last_game[22] }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="ui two column centered grid" ng-show="noTable">
+    <div class="four column centered row">
+      <div class="column">
+        <div class="ui statistic">
+          <div class="label">
+            PTS
+          </div>
+          <div class="value">
+            {{ last_game[24] }}
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui statistic">
+          <div class="label">
+            REB
+          </div>
+          <div class="value">
+            {{ last_game[18] }}
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui statistic">
+          <div class="label">
+            AST
+          </div>
+          <div class="value">
+            {{ last_game[19] }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="four column centered row">
+      <div class="column">
+        <div class="ui statistic">
+          <div class="label">
+            STL
+          </div>
+          <div class="value">
+            {{ last_game[20] }}
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui statistic">
+          <div class="label">
+            BLK
+          </div>
+          <div class="value">
+            {{ last_game[21] }}
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui statistic">
+          <div class="label">
+            TO
+          </div>
+          <div class="value">
+            {{ last_game[22] }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <h4 class="ui horizontal divider header">
+    <i class="dollar icon"></i>
+    DFS Point Totals
+  </h4>
+
+  <div class="ui two column centered grid">
+    <div class="ui horizontal statistic">
+      <div class="label">
+        <img src="//static.halfcourt.press/logo/dk.png" class="ui tiny image">
+      </div>
+      <div class="value">
+        {{ dk }}
+      </div>
+    </div>
+    <div class="ui horizontal statistic">
+      <div class="label">
+        <img src="//static.halfcourt.press/logo/fd.png" class="ui awesome image">
+      </div>
+      <div class="value">
+        {{ fd }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="hcpApp">
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- Favicons!! -->
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicon/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicon/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicon/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicon/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="favicon/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="favicon/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="favicon/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="favicon/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="favicon/favicon-196x196.png" sizes="196x196" />
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="favicon/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="favicon/favicon-128.png" sizes="128x128" />
+  <link rel="icon" sizes="16x16 32x32" href="favicon.ico">
+  <meta name="application-name" content="Half Court PRess"/>
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="favicon/mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="favicon/mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="favicon/mstile-150x150.png" />
+  <meta name="msapplication-wide310x150logo" content="favicon/mstile-310x150.png" />
+  <meta name="msapplication-square310x310logo" content="favicon/mstile-310x310.png" />
+
+  <!-- Site Properties -->
+  <title>Half Court Press</title>
+  <link rel="stylesheet" type="text/css" href="bower_components/semantic/dist/semantic.css">
+  <link rel="stylesheet" type="text/css" href="css/hp.css">
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+</head>
+<body>
+
+  <div class="ui inverted menu">
+    <div class="ui container">
+      <a href="#" class="header item">
+        <img class="logo" src="//static.halfcourt.press/logo/small.png">
+        Half Court Press
+      </a>
+<!--       <div class="right menu">
+        <a class="item">About</a>
+      </div> -->
+    </div>
+  </div>
+
+  <div class="ui masthead">
+    <div class="ui text container">
+        <h1 class="ui center aligned header textl">
+          <span class="textb">Half</span> the stats you <span class="textr">need</span>
+        </h1>
+        <h3 class="ui center aligned header masthead-text">Search for an NBA player to find <i>only</i> previous game stats and DFS points scored.</h3>
+    </div>
+  </div>
+
+  <div class="ui container">
+    <div class="ui stackable doubling grid">
+      <div class="five wide column search-body" ng-controller="PlayerSearchCtrl">
+        <div class="ui fluid icon input">
+          <input ng-model="playerSearch" type="text" placeholder="Find a player">
+          <i class="search icon"></i>
+        </div>
+
+        <div class="ui middle aligned relaxed divided selection list">
+          <a ng-repeat="player in players | filter:playerSearch | limitTo:quantity" class="item" ng-href="#/player/{{ player[0] }}">
+            <img class="ui awesome image" ng-src="http://stats.nba.com/media/players/230x185/{{ player[0] }}.png" ng-hide="noPics">
+            <div class="content">
+              <div class="header">{{ player[2] }}</div>
+              <div class="description">{{ player[8] + ' ' + player[9] }}</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="ten wide column">
+        <div ng-view></div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
